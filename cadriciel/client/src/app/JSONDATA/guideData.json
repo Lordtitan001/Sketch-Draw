@@ -1,0 +1,122 @@
+[
+    {
+        "description": "Bienvenue dans le guide de l'utilisateur. Accélérez vos capacités de conception en faisant défiler la table des matières à votre gauche et découvrez comment utiliser chacune de nos fonctionnalités à leur plein potentiel.",
+        "name": "Bienvenue",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Cet outil permet de tracer une ligne d’un ou plusieurs segments. Un premier clic définit la position de départ de la ligne. Ensuite, chaque clic qui suit « connecte » avec le clic qui le précède pour former un segment de la ligne.",
+        "name": "Ligne",
+        "img":"timeline",
+        "explication":" Vous êtes aptes à sa fixer la couleur. En gardant enfoncée la touche SHIFT, votre ligne fera un angle de 45 degrés avec l’horizontal. Vous pouvez donc faire des angles droits, obtus ou aigu dépendamment de vos besoins. Cependant, dès qu’elle sera relâché, votre ligne suivra à nouveau le pointeur de la souris. De plus, en appuyant sur la touche ESCAPE, vous annulez le traçage complet de la ligne. La touche BACKSPACE vous permets de supprimer le dernier segment."
+    },
+    {
+        "description": "Cet outil permet d’écrire des chaines de caractères sur la surface de dessin. Pour l’utiliser, il suffit de cliquer à l’endroit où l’on veut écrire. Il n’y a pas de retour à la ligne automatique, l’utilisateur doit appuyer sur la touche d’entrée (Enter) pour créer une nouvelle ligne. Pendant l’édition du texte, il devra être possible de se déplacer dans le texte avec les touches directionnelles (flèches) du clavier et de supprimer avec la touche de retour arrière (Backspace) ou la touche de suppression (Delete). Pour terminer la création d’un texte, il suffit de cliquer à l’extérieur de celui-ci ou de sélectionner un autre outil. Appuyer sur la touche d’échappement (Escape) annule la création du texte. Pendant la création du texte, tous les raccourcis sauf la touche d’échappement sont ignorés. Pour la couleur du texte, la couleur principale doit être utilisée. Pour les différents outils, le texte se comporte comme un tout. Par exemple, cliquer sur une lettre fait sélectionner ou effacer tout l’objet texte. 16 Le panneau d’attributs doit permettre les configurations suivantes : la police, la taille de la police , des mutateurs (gras et/ ou italique) et des alignement du texte (gauche ,droite, centre).",
+        "name": "Texte",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Cet outil vous permet de colorier ou de remplir toutes de formes , courbes , outils ou même dessins ",
+        "name": "Sceau",
+        "img":"colorize",
+        "explication":"Vous n'avez qu'à fixer vos couleurs primaire et secondaire , puis , avec un clic gauche , appliquer la couleur primaire pour la couleur principale ou un clic droit , prenant la couleur secondaire, et l'applique sur la bordure , s'il y en a une , de votre objet. Il est possiblek d'y acceder avec le raccourci clavier R. "
+    },
+    {
+        "description": "Il représente l’outil de ase du logiciel de dessin . Il ne sert qu’a faire de simple traits sans texture particulière et a une pointe ronde. L’utilisateur peut le manipuler en fonction de l’épaisseur souhaité. Il est représenté par cette icone et S’utilise par glissement sur l’interfcae",
+        "name": "Crayon",
+        "img":"create",
+        "explication":"Vous êtes aptes à fixer la couleur du crayon. De plus, vous pouvez y accéder en appuyant sur la touche C."
+    },
+    {
+        "description": "Cet outil est similaire au crayon. Il n’en diffère que par la texture du trait. L’application doit offrir un choix d’au moins cinq textures différentes. Le panneau d’attributs vous permet de configurer vos épaisseurs.",
+        "name": "Pinceau",
+        "img":"brush",
+        "explication":"Vous êtes aptes à fixer la couleur du pinceau. Également, vous pouvez y accéder avec appuyant sur la touche W. De plus , cet possède 5 textures aussi différentes les unes des autres."
+    },
+    {
+        "description": "Cet outil ressemble fortement au crayon. Cependant, sa pointe est mince plutôt que ronde. Le panneau d’attributs vous permet de configurer votre plume en fonctions de la longueur en pixel et de l’angle d’orientation de la line en degré. Il est aussi possible de changer l’angle de la ligne à l’aide de la roulette de la souris. À chaque cran de roulette, une rotation de 15 degrés est effectuée. Si la touche Alt du clavier est maintenue enfoncée pendant cette action, la rotation sera plutôt de 1 degré.",
+        "name": "Plume",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Cet outil simule un effet de peinture en aérosol. Dès que le bouton est enfoncé, un jet de peinture est vaporisé sous le pointeur de la souris. L’outil continu ensuite d’émettre de la peinture à intervalle régulier jusqu’à qu’à ce que le bouton soit relâché. Pour plus de réalisme, le motif de vaporisation présente de légères variations à chaque fois qu’il est émis. Le panneau d’attributs permet les configurations suivantes : le nombre d’émissions par seconde et le diamètre du jet en pixels.",
+        "name": "Aerosol",
+        "img":"bubble_chart",
+        "explication":"Vous êtes aptes à fixer la couleur des jets. Également, vous pouvez y accéder avec appuyant sur la touche A."
+    },
+    {
+        "description": "Cet outil permet de changer la couleur d’un objet simplement en cliquant dessus. Un clic avec le bouton gauche sur un objet fera changer sa couleur pour la couleur principale. Un clic avec le bouton droit sur un objet fera changer la couleur de bordure, s’il en a une, pour la couleur secondaire. Un objet dessiné avec l’option Contour seulement est considéré comme vide, c’est-à-dire que les clics à l’intérieur de l’objet sont ignorés et il n’est possible que de changer la couleur de bordure.",
+        "name": "Couleur",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Cet outil permet de supprimer des objets de la surface de dessin. Tout objet se trouvant en contact avec l’efface lors d’un clic gauche est effacé. L’objet effacé est toujours celui « sur le dessus de la pile » d’objets. Pour se servir de l’outil comme d’une brosse, il suffit de maintenir le bouton gauche enfoncé et de déplacer la souris. Tout objet touché pendant le mouvement sera alors supprimé. L’efface se trouve bien entendu centrée sur le pointeur de la souris. Elle doit être représentée par un carré blanc de dimension configurable. C’est lors du contact entre ce carré et un objet qu’il y a effacement. Tel qu’expliqué ci-dessus, un glisser-déposer peut être employé pour effacer plusieurs objets. Dans un contexte d’annuler-refaire (undo-redo en anglais), cet effacement ne constitue qu’une seule action. Autrement dit, annuler une action d’effacement faite par glisser-déposer restituera l’ensemble des objets effacés pendant cette action. Pour aider l’utilisateur à bien voir ce qu’il s’apprête à effacer, une altération visuelle temporaire des objets survolés par l’efface doit avoir lieu. En effet, chaque objet se trouvant en contact avec l’image de l’efface (carré blanc) doit se faire ajouter un contour rouge. Si l’objet avait déjà un contour, via un attribut configurable, celui-ci est alors coloré en rouge et épaissi. L’altération visuelle d’un objet est éliminée dès que celui-ci n’est plus en contact avec l’efface. Le panneau d’attributs doit permettre la configuration suivante : taille de l’efface en pixels.",
+        "name": "Efface",
+        "img":"crop_portrait",
+        "explication":""
+    },
+    {
+        "description": "L’étampe est une petite image que l’on peut apposer sur le dessin. Il peut par exemple s’agir de cliparts ou bien d’emojis. Pour appliquer une étampe, il suffit d’un simple clic du bouton gauche à l’endroit désiré. Le panneau d’attributs doit permettre les configurations suivantes : le facteur de mise à échelle, l’angle d’orientation et le choix d’étampe",
+        "name": "Étampe",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Cet outil permet de dessiner des rectangles. Ceux-ci seront bien entendu de même superficie que le périmètre rectangulaire. À tout moment pendant la première ou la deuxième étape de la création, si une touche Shift est maintenue appuyée, la forme à créer devient un carré plutôt qu'un rectangle. Celui-ci occupera la plus grande aire possible et sera ancré au coin initial du périmètre rectangulaire. Note : la mise à jour de la forme, c'est-à-dire le passage de rectangle à carré ou de carré à rectangle, se fait dès que l'état de la touche Shift change. Autrement dit, dès que la touche est appuyée ou relâchée. Il n'est pas nécessaire de bouger la souris pour que la forme se mette à jour. Le panneau d’attributs permet les configurations suivantes : le type de tracé et l’épaisseur du trait de contour en pixels.",
+        "name": "Rectangle",
+        "img":"crop_3_2",
+        "explication":"Vous avez accès a trois types de tracage : le trcacage avec contour , le tracage plein et le tracage plein avec contour. Les couleurs primaire et secondaire corespondent respectivement , dans le dernier cas , au contour et à l'intérieur du rectangle. En appuuyant sur la touche 1 , vous accédez également à cet outil."
+    },
+    {
+        "description": "Cet outil adopte le même comportement que celui permettant de dessiner des rectangles. La seule différence est que la forme dessinée est une ellipse. Comme pour l’outil rectangle, l’utilisation de la touche Shift aura un effet. Ici, elle transformera l’ellipse en cercle. Le panneau d’attributs permet les configurations suivantes : le type de tracé et l’épaisseur du trait de contour en pixels.",
+        "name": "Ellipse",
+        "img":"panorama_fish_eye",
+        "explication":"Vous avez accès a trois types de tracage : le trcacage avec contour , le tracage plein et le tracage plein avec contour. Les couleurs primaire et secondaire corespondent respectivement , dans le dernier cas , au contour et à l'intérieur du rectangle. En appuuyant sur la touche 2 , vous accédez également à cet outil."
+    },
+    {
+        "description": "La forme de polygone fonctionne comme les deux précédents. Il vous permet toutefois  de spécifier le nombre de côtés de la forme à dessiner. Le panneau d’attributs doit permet les configurations suivantes : le type de tracé, l’épaisseur du trait de contour en pixels et son nombre de coté compris dans un intervalle de 3 à 12.",
+        "name": "Polygone",
+        "img":"change_history",
+        "explication":"Le raccourci clavier associé à cette forme est la touche 3. "
+    },
+    {
+        "description": "Avec cet outil, vous pouvez sélectionner un ou plusieurs objets de la surface de dessin. Il vous est ensuite possible de les déplacer, de changer leurs dimensions ou de les faire pivoter. Vous pouvez également faire des sélections multiples",
+        "name": "Sélection",
+        "img":"border_style",
+        "explication":"Vous pouvez y acceder avec le raccourci clavier S. De plus , afain de selectionner tout le dessein , vous plus user du CTRL+A. E"
+    },
+    {
+        "description": "Une sélection peut être déplacée de deux façons. Soit avec la souris, soit avec le clavier. Le déplacement via la souris s’effectue à l’aide d’un glisser-déposer avec le bouton gauche de la souris. Le déplacement subi par la sélection doit être identique à celui fait par le pointeur de la souris. C'est-à-dire qu'en tout temps, donc du début jusqu'à la fin du déplacement, le point de la sélection situé sous le pointeur reste le même. Également vous pouvez opter pour le déplacement via le clavier se fait à l’aide des touches directionnelles (les 4 flèches). À chaque fois qu’une touche directionnelle est appuyée, la sélection se déplace de 3 pixels dans la direction représentée par la touche. Si la touche est maintenue enfoncée, après un délai de 500 ms, une séquence de déplacement à répétition débutera. Le déplacement aura donc lieu à toutes les 100 ms jusqu’à ce que la touche soit relâchée.",
+        "name": "Déplacement",
+        "img":"border_style",
+        "explication":""
+    },
+    {
+        "description": "C’est en déplaçant les points de contrôle de la boite englobante que l’on parvient à redimensionner les objets. Chaque déformation subie par la boite englobante est aussi appliquée, dans les mêmes proportions, aux objets sélectionnés qu’elle encadre. Les points de contrôle permettent d’agrandir ou de rapetisser la boite englobante sur un de ses axes. Lorsqu’un point est éloigné ou rapproché de son opposé, cela étire ou contracte la boite englobante. Pendant ces manipulations, le point opposé reste fixe.",
+        "name": "Redimenssionnement",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Il vous permet de copier , de coller ,de couper , de supprimer ou encore de dupliquer une sélection que vous avez faites.",
+        "name": "Presse-Papier",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Vous devez entrer un nom pour la sauvegarde du dessin. Celui-ci est sauvegardé sur le serveur de Polydessin dans un format de votre choix.Vous pouvez aussi définir une ou plusieurs étiquettes (tags en anglais) associées à son dessin. Il doit y avoir une validation sur les étiquettes définies. Les règles de validation sont laissées à votre choix (nombre de caractères maximal et/ou minimal, limitation à des caractères alphanumériques, présence ou non des espaces, etc.). Cependant, ces règles doivent être explicitées dans l’interface pour l’utilisateur. L’usage des étiquettes est optionnel et vous pouvez sauvegarder votre dessin sans problème même si vous n’en spécifie aucune.",
+        "name": "Sauvegarde",
+        "img":"",
+        "explication":""
+    },
+    {
+        "description": "Vous pouvez créer une image à partir de la surface de dessin et de l’exporter dans un des formats suivants : JPG, PNG ou SVG. L’utilisateur devra entrer un nom pour le fichier exporté. S’il le souhaite, plutôt que de sauvegarder localement le dessin exporté, l’utilisateur doit pouvoir l’envoyer par courriel. Dans un tel cas, l’utilisateur ne devra pas seulement fournir un nom de fichier, mais aussi un nom d’auteur et l’adresse du destinataire. La fonctionnalité d’exportation doit aussi permettre d’appliquer un filtre sur l’image avant que l’exportation ne soit effectuée. Une variété de cinq filtres différents doit être disponible. Par exemple, un filtre pourrait retirer la couleur d’une image pour la transformer en niveaux de gris. Bien qu’il doive y avoir plusieurs filtres disponibles, il ne doit être possible que d’en appliquer un seul lors d’une exportation. Finalement, l’interface d’exportation doit toujours présenter une vignette de prévisualisation de l’image qui sera exportée.",
+        "name": "Exportation",
+        "img":"",
+        "explication":""
+    }
+]
