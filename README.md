@@ -1,5 +1,5 @@
 # Sketch
-Drawing web application.
+Drawing web application with angular, nodeJS and mongoDB.
 
 # Client
 
