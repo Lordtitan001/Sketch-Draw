@@ -1,0 +1,194 @@
+#canvasDiv {
+    position: relative;
+    width: fit-content;
+    height: 256px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--secondary);
+}
+
+.inverser{
+    cursor: pointer;
+}   
+
+.mat-raised-button{
+    width: 80px !important;
+    font-size: 10px !important;
+    left: 5px;
+    height: 30px !important;
+}
+
+
+#canvasRef {
+    position: absolute;
+    width: 256px;
+    height: 256px;
+}
+
+.colorContainer {
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--secondary) !important;
+    background-color: var(--secondary) !important;
+    top: 1px;
+    height: 120px;
+    width: 286px;
+}
+
+#preview {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    width: 30;
+    height: 30;
+}
+
+#firstColorPreview {
+    position: absolute;
+    top: 10px;
+    left: 155px;
+    
+}
+
+#secondColorPreview {
+    position: absolute;
+    top: 50px;
+    left: 155px;
+}
+
+.rectangle {
+    stroke-width: 3;
+}
+
+#select-button1 {
+    position: absolute;
+    left: 185px;
+    top: 10px;
+    text-align: center;
+}
+
+#select-button2 {
+    position: absolute;
+    top: 45px;
+    left: 185px;
+    text-align: center;
+}
+#select-button3 {
+    position: absolute;
+    top: 85px;
+    left: 185px;
+    text-align: center;
+}
+
+#inverseButton {
+    position: absolute;
+    top: 30px;
+    left: 140px;
+}
+
+#box1 {
+    position: absolute;
+    left: 10px;
+    top: 80px;
+    width: 40px;
+}
+
+#box2 {
+    position: absolute;
+    top: 80px;
+    left: 35px;
+    width: 40px;
+}
+
+#box3 {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    width: 40px;
+}
+
+#box4 {
+    position: absolute;
+    top: 80px;
+    left: 85px;
+    width: 40px;
+}
+
+#box5 {
+    position: absolute;
+    top: 80px;
+    left: 110px;
+    width: 40px;
+}
+
+#box6 {
+    position: absolute;
+    left: 10px;
+    top: 100px;
+    width: 40px;
+}
+
+#box7 {
+    position: absolute;
+    left: 35px;
+    top: 100px;
+    width: 40px;
+}
+
+#box8 {
+    position: absolute;
+    left: 60px;
+    top: 100px;
+    width: 40px;
+}
+
+#box9 {
+    position: absolute;
+    left: 85px;
+    top: 100px;
+    width: 40px;
+}
+
+#box10 {
+    position: absolute;
+    top: 100px;
+    left: 110px;
+    width: 40px;
+}
+
+mat-slider {
+    width: 100px;
+    position: absolute;
+    left: 10px;
+    top: 40px;
+}
+
+// canvas {
+//     border: 1px solid #000000;
+//     z-index: -1;
+// }
+
+mat-form-field {
+    min-width: 20px;
+    max-width: 80px;
+    width: 100%;
+}
+
+#formfield {
+    position: absolute;
+    top: 2px;
+    left: 45px;
+}
+
+.formfield {
+    margin: 5px;
+    bottom: 8px;
+}
+
+.error-messages {
+    margin-top: 30px;
+    font-size: 0.5em;
+    color: red;
+    text-align: center;
+}

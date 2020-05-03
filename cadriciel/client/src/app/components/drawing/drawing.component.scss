@@ -1,0 +1,21 @@
+
+
+svg{
+    display: block;
+    background-color: white;
+}
+.line{
+    border-radius: 50%;
+}
+
+svg > rect{
+    z-index: 1;
+}
+svg > path{
+    z-index: 1;
+}
+
+.path {
+    box-sizing: border-box;
+    border: 2px black solid;
+}

@@ -1,0 +1,51 @@
+.form{
+    width: 100%;
+}
+.button{
+    width: 40%;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+}
+.buttonsTable{
+    width: 500px;
+}
+.buttons{
+    top: 10px;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+.full-width{
+    width: 100%;
+}
+.error-messages{
+    font-size: 0.6em;
+    color: red;
+    text-align: center;
+}
+.div{
+    float:left; 
+    position:relative; 
+    width: 700px;
+    height: 100%;
+}
+.svgImage{
+    box-sizing: border-box;
+    border: 1px solid rgb(154, 154, 158);
+}
+.preview {
+    width: 100%;;
+    height: 100%;
+    position: relative;
+}
+
+.selectList{
+    color: var(--text);
+}
+
+.option {
+    background-color: var(--matCard) ;
+    color: var(--text);
+}
+

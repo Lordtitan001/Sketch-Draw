@@ -1,0 +1,277 @@
+<content>
+    <div [ngSwitch]="element">
+        <div *ngSwitchCase="0">
+        </div>
+        <div *ngSwitchCase="1">
+            <div id="toolsList">
+                <div>
+                    <span color="primary">
+                        <h2>Outils</h2>
+                    </span>
+                </div>
+                <div class="tools">
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(1)" (click)="selectTool(1)">
+                            create</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Crayon (C)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(2)" (click)="selectTool(2)"> brush</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Pinceau (W)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(6)" (click)="selectTool(6)">
+                            border_style</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Selection (S)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(7)" (click)="selectTool(7)">
+                            colorize</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext"> Applicateur de couleur (R) </span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(8)" (click)="selectTool(8)">
+                            crop_portrait</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext"> Efface (E)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons " [ngStyle]="getIconStyle(9)" (click)="selectTool(9)">
+                            bubble_chart </i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Aerosol (A)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(10)" (click)="selectTool(10)">
+                            invert_colors</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Pipette (I)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(14)" (click)="selectTool(14)">
+                            gesture</i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Plume (P)</span>
+                    </span>
+
+                    <!-- <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(13)" (click)="selectTool(13)">
+                            format_color_fill</i>
+                        <span class="tooltiptext">Sceau de Peinture</span>
+                    </span> -->
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="2">
+            <div id="toolsList">
+                <div>
+                    <span color="primary">
+                        <h2>Formes</h2>
+                    </span>
+                </div>
+                <div class="tools">
+                    <span class="tooltip">
+                        <i class="icon material-icons " [ngStyle]="getIconStyle(3)" (click)="selectTool(3)">
+                            crop_3_2 </i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Rectangle (1)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons" [ngStyle]="getIconStyle(4)" (click)="selectTool(4)">
+                            timeline
+                        </i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Ligne (L)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons " [ngStyle]="getIconStyle(5)" (click)="selectTool(5)">
+                            panorama_fish_eye </i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Ellipse (2)</span>
+                    </span>
+                    <span class="tooltip">
+                        <i class="icon material-icons " [ngStyle]="getIconStyle(11)" (click)="selectTool(11)">
+                            change_history </i>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext">Polygone (3)</span>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="8">
+            <div id="toolsList">
+                <div class="properties">
+                    <div>
+                        <span color="primary">
+                            <h2>Propriétes</h2>
+                        </span>
+                    </div>
+                    <div>
+                        <div> Taille des carres </div>
+                        <mat-slider thumbLabel min="10" max="100" step="1" (change)="gridService.makeGrid()"
+                            [(ngModel)]="gridService.thickness" class="tooltip">
+                        </mat-slider>
+                    </div>
+                    <div>
+                        <div> Opacité </div>
+                        <mat-slider thumbLabel min="0.20" max="1" step="0.1" (change)="gridService.makeGrid()"
+                            [(ngModel)]="this.drawService.grid.gridOpacity" class="tooltip">
+                        </mat-slider>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="9">
+            <div id="toolsList">
+                <div class="properties">
+                    <div>
+                        <span color="primary">
+                            <h2>Propriétes</h2>
+                        </span>
+                    </div>
+                    <div>
+                        <div style="font-weight: bold; margin-bottom: 30px;"> Choisir le point de contrôle </div>
+                        <mat-radio-group [(ngModel)]="selection" (change)="selectCorner()" aria-label="Select an option">
+                            <mat-radio-button value="0">Coins haut/gauche</mat-radio-button>
+                            <mat-radio-button value="1">Coins haut/droite</mat-radio-button>
+                            <mat-radio-button value="2">Coins bas/gauche</mat-radio-button>
+                            <mat-radio-button value="3">Coins bas/droite</mat-radio-button>
+                            <mat-radio-button value="4">Centre</mat-radio-button>
+                            <mat-radio-button value="5">Controle haut</mat-radio-button>
+                            <mat-radio-button value="6">Controle bas</mat-radio-button>
+                            <mat-radio-button value="7">Controle gauche</mat-radio-button>
+                            <mat-radio-button value="8">Controle Droite</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="element===1 || element === 2" class="properties">
+            <div>
+                <span color="primary">
+                    <h2>Propriétes</h2>
+                </span>
+            </div>
+            <div class="property">
+                <div *ngIf="drawService.selectedTools.strokeWidth !== 'none'">
+                    <div> Epaisseur </div>
+                    <mat-slider thumbLabel min="3" max="30" step="1"
+                        [(ngModel)]="this.drawService.selectedTools.strokeWidth" class="tooltip">
+                    </mat-slider>
+                </div>
+                <div *ngIf="drawService.selectedTools.length">
+                    <div> Longeur du trait </div>
+                    <mat-slider thumbLabel min="20" max="50" step="1"
+                        [(ngModel)]="this.drawService.selectedTools.length" class="tooltip">
+                    </mat-slider>
+                </div>
+
+                <div *ngIf="this.drawService.enumTool === 9">
+                    <div> Nombre d'emission par seconde </div>
+                    <mat-slider thumbLabel min="1" max="30" step="1" [(ngModel)]="this.drawService.selectedTools.speed">
+                    </mat-slider>
+                </div>
+                
+                <div *ngIf="this.drawService.enumTool === 13">
+                    <div> Tolérence </div>
+                    <mat-slider thumbLabel min="0" max="100" step="1" [(ngModel)]="this.drawService.selectedTools.tolerence">
+                    </mat-slider>
+                </div>
+                <div *ngIf="drawService.selectedTools.texture !== 'Default'">
+                    <mat-menu #menu="matMenu" xPosition="after">
+                        <button class="button" (click)="selectTexture('Filter2')" mat-menu-item>
+                            <img src="assets/textures/Texture2.jpg" alt="Texture 1" height="30" width="100%">
+                        </button>
+                        <button class="button" (click)="selectTexture('Filter3')" mat-menu-item>
+                            <img src="assets/textures/Texture3.jpg" alt="Texture 2" height="30" width="100%">
+                        </button>
+                        <button class="button" (click)="selectTexture('Filter4')" mat-menu-item>
+                            <img src="assets/textures/Texture4.jpg" alt="Texture 3" height="30" width="100%">
+                        </button>
+                        <button class="button" (click)="selectTexture('Filter1')" mat-menu-item>
+                            <img src="assets/textures/Texture1.jpg" alt="Texture 4" height="30" width="100%">
+                        </button>
+                        <button class="button" (click)="selectTexture('Filter5')" mat-menu-item>
+                            <img src="assets/textures/Texture5.jpg" alt="Texture 5" height="30" width="100%">
+                        </button>
+                    </mat-menu>
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <span>Textures</span>
+                        <mat-icon> keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+
+                <div style="margin-top: 15px;" *ngIf="drawService.selectedTools.sides">
+                    <div>Nombre de côtés</div>
+                    <mat-slider thumbLabel min="3" max="12" step="1" [(ngModel)]="this.drawService.selectedTools.sides"
+                        class="tooltip">
+                    </mat-slider>
+                </div>
+
+                <div>
+                    <div *ngIf="drawService.selectedTools.strokeType !== 3">
+                        <mat-menu #menu="matMenu" xPosition="after">
+                            <button class="buttontxt" (click)="selectStrokeType(0)" mat-menu-item>
+                                Contour
+                            </button>
+                            <button class="buttontxt" (click)="selectStrokeType(1)" mat-menu-item>
+                                Plein
+                            </button>
+                            <button class="buttontxt" (click)="selectStrokeType(2)" mat-menu-item>
+                                Plein avec Contour
+                            </button>
+                        </mat-menu>
+                        <button mat-button [matMenuTriggerFor]="menu">
+                            <span>Type de tracer</span>
+                            <mat-icon> keyboard_arrow_right</mat-icon>
+                        </button>
+                    </div>
+                    <div *ngIf="drawService.enumTool === 4">
+                        <div>
+                            <mat-menu #menu="matMenu" xPosition="after">
+                                <button class="buttontxt" (click)="withJonctions('false')" mat-menu-item>
+                                    Normale
+                                </button>
+                                <button class="buttontxt" (click)="withJonctions('true')" mat-menu-item>
+                                    Point
+                                </button>
+                            </mat-menu>
+                            <button mat-button [matMenuTriggerFor]="menu">
+                                <span>Type de jonction</span>
+                                <mat-icon> keyboard_arrow_right</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top: 15px;" *ngIf="this.drawService.selectedTools.withJonctions">
+                        <div>Jonction </div>
+                        <mat-slider thumbLabel min="1" max="30" step="1"
+                            [(ngModel)]="this.drawService.selectedTools.strokeJonction"></mat-slider>
+                    </div>
+
+                </div>
+                <div >
+                    <button (click)="openDialog()" mat-button>
+                        <span >Couleur</span>
+                        <mat-icon> keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+
+                <div>
+                    <span style="position: relative !important; top: -17px !important;">Primaire</span>
+                    <span [ngStyle]="{'background-color': pickerService.primaryColor.getColor()}" class="dot tooltip">
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext"> Couleur Primaire </span>
+                    </span>
+                    <span class="tooltip" style="position: relative !important; top: -13px !important; cursor: pointer;">
+                        <mat-icon (click)="pickerService.inverseColor()"> sync_alt </mat-icon>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext"> Inverser couleurs </span>
+                    </span>
+                    <span class="tooltip" [ngStyle]="{'background-color': pickerService.secondaryColor.getColor()}" class="dot tooltip">
+                        <span *ngIf="mapService.helpChecked" class="tooltiptext"> Couleur secondaire </span>
+                    </span>
+                    <span style="position: relative !important; top: -17px !important;">Secondaire</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</content>

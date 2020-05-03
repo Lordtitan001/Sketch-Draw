@@ -1,0 +1,39 @@
+.preview {
+    width: 300px;
+    height: 250px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-bottom: 20px
+}
+
+.form-field {
+    width: 100%
+}
+
+.OldChip{
+    width: fit-content;
+    max-height: 22px !important;
+}
+
+.mat-standard-chip {
+    min-height: 22px !important;
+}
+.input-name {
+    font-size: 15px;
+    color: black;
+}
+
+.rule {
+    font-size: 10px;
+    color: gray;
+    width: 100%;
+    font-style: italic;
+}
+
+.chip-list {
+    width: 100%;
+}
+.card-button-delete {
+    position: relative;
+    float: right;
+}

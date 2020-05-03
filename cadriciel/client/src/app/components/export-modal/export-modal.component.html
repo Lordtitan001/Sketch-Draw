@@ -1,0 +1,86 @@
+
+<div class="div">
+    <div class="svgImage" style="position: relative; float: right; width: 400px; height: 300px;;">
+        <svg [attr.viewBox]="this.scale" [attr.filter]="this.exported.previewStyle" width="100%" height="100%" #svgRef>
+        </svg>
+    </div>
+
+    <div style="display: inline">
+        <h1 mat-dialog-title>Fenetre d'exportation</h1>
+        <table>
+            <tr>
+                <td colspan="5">
+                    <mat-form-field>
+                        <input matInput placeholder="Nom du fichier" type="text"
+                            [(ngModel)]="this.exported.export.fileName" />
+                    </mat-form-field>
+                </td>
+            </tr>
+            <h2 mat-dialog-title>Choisir un format</h2>
+            <mat-form-field>
+                <select class="selectList" #extension matNativeControl required>
+                    <option class="option" value="png">PNG</option>
+                    <option class="option" value="svg">SVG</option>
+                    <option class="option" value="jpg">JPG</option>
+                </select>
+            </mat-form-field>
+            <tr>
+                <mat-form-field>
+                    <mat-label>Filtre</mat-label>
+                    <select class="selectList" #filter matNativeControl required (change)='onValueChange()'>
+                        <option class="option" value="none">Aucun</option>
+                        <option class="option" value="blur">Flouter</option>
+                        <option class="option" value="invert">Noir 3D</option>
+                        <option class="option" value="grayscale">Gris 3D</option>
+                        <option class="option" value="saturate">Turbulence</option>
+                        <option class="option" value="sepia">Grain</option>
+                    </select>
+                </mat-form-field>
+            </tr>
+        </table>
+        <table class="buttonsTable">
+            <tr class="buttons">
+                <a #select>
+                    <button class="button" mat-raised-button (click)="save()">
+                        Sauvegarder localement
+                    </button>
+                </a>
+                <button class="button" mat-raised-button
+                    (click)="this.exported.export.sendByMail=!this.exported.export.sendByMail">
+                    <span>Envoyer par email</span>
+                    <mat-icon> keyboard_arrow_right</mat-icon>
+                </button>
+            </tr>
+        </table>
+        <form [formGroup]="formService.formGroup">
+            <td style="position: relative; top: 10px;" *ngIf='this.exported.export.sendByMail' colspan="1">
+                <tr>
+                    <mat-form-field>
+                        <input matInput placeholder="Courriel du destinataire" type="email"
+                            [(ngModel)]="this.exported.export.email" formControlName="email" />
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <button *ngIf="canSend(); else elseBlock" style="top: 6px;" mat-raised-button (click)="onSendClick()">
+                        <span>Envoyer</span>
+                        <mat-icon *ngIf='this.exported.export.sendByMail; else elseBlock'> keyboard_arrow_right
+                        </mat-icon>
+                    </button>
+                </tr>
+            </td>
+
+            <ng-template #elseBlock>
+                <div *ngIf='this.exported.export.sendByMail' class="error-messages">
+                    <ng-container *ngFor="let error of formService.errorMessages.email">
+                        <div class="error-message" *ngIf="this.formService.formGroup.get('email').hasError(error.type)">
+                            {{error.message}}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-template>
+            
+        </form>
+    </div>
+</div>
+
+<canvas #canvas width="0" height="0"> </canvas>

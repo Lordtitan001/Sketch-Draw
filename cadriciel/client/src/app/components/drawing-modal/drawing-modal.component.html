@@ -1,0 +1,56 @@
+<div *ngIf="!this.data.isDirty; else elseBlock">
+    <h1 mat-dialog-title>Creer nouveau dessin</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="formService.formGroup">
+            <table>
+                <td>
+                    <mat-form-field class="full-width">
+                        <input (change)="onValueChange('width')" placeholder="width" min="0" matInput formControlName="width" type="number" />
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width">
+                        <input (change)="onValueChange('height')" placeholder="height" min="0 " matInput type="number" formControlName="height" />
+                    </mat-form-field>
+                </td>
+                <tr>
+                    <td>
+                        <div style="margin-top: 8px;">
+                            <button (click)="openDialog()" mat-raised-button>
+                                <span>Couleur</span>
+                                <mat-icon> keyboard_arrow_right</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="error-messages">
+                <ng-container *ngFor="let error of formService.errorMessages.width">
+                    <div class="error-message" *ngIf="this.formService.formGroup.get('width').hasError(error.type) && (this.formService.formGroup.get('width').dirty)">
+                        {{error.message}}
+                    </div>
+                </ng-container>
+                <ng-container *ngFor="let error of formService.errorMessages.height">
+                    <div class="error-message" *ngIf="this.formService.formGroup.get('height').hasError(error.type) && (this.formService.formGroup.get('height').dirty)">
+                        {{error.message}}
+                    </div>
+                </ng-container>
+            </div>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Non</button>
+        <button mat-button (click)="newDesign()" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    <div>
+        Etes vous sure de vouloir fermer le dessin en cours ?
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Non</button>
+        <button mat-button (click)="newPage()">Oui</button>
+    </div>
+</ng-template>

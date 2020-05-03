@@ -1,0 +1,52 @@
+<div style="width: fit-content; height: fit-content;">
+    <h1 mat-dialog-title style="text-align : center"> Sauvegarder le dessin </h1>
+    <div>
+        <div class="preview">
+            <svg [ngStyle]="saveProp.svgStyle">
+                <g width='100%' height='100%' #previewSvg [attr.transform]="this.saveProp.transform"> </g>
+            </svg>
+        </div>
+
+        <mat-form-field class="chip-list">
+            <mat-chip-list #chipList>
+                <mat-chip *ngFor="let tag of saveData.tags" [selectable]="chip.selectable" [removable]="chip.removable" (removed)="remove(tag)">
+                    {{tag}}
+                    <mat-icon matChipRemove *ngIf="chip.removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Ajouter etiquette" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="chip.separatorKeysCodes" [matChipInputAddOnBlur]="chip.addOnBlur" (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </mat-form-field>
+
+        <mat-chip-list>
+            <mat-chip class="OldChip" *ngFor="let tag of galeryService.tagList" [selectable]="chip.selectable" (click)="addChip(tag)">
+                {{tag}}
+                <mat-icon matChipRemove (click)="addChip(tag)">add</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+
+        <mat-form-field class="form-field">
+            <input class="input-name" [(ngModel)]="saveData.name" type="text" matInput />
+            <mat-label> Nom </mat-label>
+        </mat-form-field>
+
+        <div class="rule">
+            <span> *le nombre maximal d'étiquette est de 10 </span><br>
+            <span> *une étiquette peut comporter maximum 10 caractères </span><br>
+            <span> *appuyer sur enter ou sur espace pour valider une étiquette </span><br>
+            <span> *on ne peut pas entrer plusieurs fois la même etiquette</span><br>
+        </div>
+        <mat-dialog-actions>
+            <button mat-raised-button (click)="save()">
+                <ng-template #elseBlock>
+                    <mat-lable  > Sauvegarder dessin </mat-lable>
+                </ng-template>
+                <span *ngIf="this.isSaving | async; else elseBlock" > 
+                    <mat-progress-spinner  diameter="35" class="progress-spinner" [color]="spin.color" [mode]="spin.mode" [value]="spin.value">
+                    </mat-progress-spinner>
+                </span>
+            </button>
+
+            <button mat-raised-button class="card-button-delete" (click)="close()">Fermer</button>
+        </mat-dialog-actions>
+    </div>
+</div>

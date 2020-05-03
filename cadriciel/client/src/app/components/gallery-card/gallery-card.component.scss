@@ -1,0 +1,51 @@
+.card {
+    width: fit-content !important;
+    height: fit-content !important;
+    color: var(--text) !important;
+    background-color: transparent !important;
+    // border: thin solid white !important;
+}
+
+.title{
+    position: relative;
+    text-align: center;
+    padding-bottom: 5px;
+    width: 100%;
+
+}
+.card-content{
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    padding-top: 5px;
+    border-top: 1px solid gray;
+}
+.card-span{
+    font-size: 15px;
+    color: gray;
+    margin-left: 10px;
+}
+.header{
+    text-align: center;
+    
+}
+.card-button{
+    background-color: whitesmoke;
+}
+.example-header-image {
+    background-size: cover;
+}
+
+.card-button-delete{
+    background-color: red;
+    color: white;
+    position: relative;
+    float: right;
+}
+
+.card-title{
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}

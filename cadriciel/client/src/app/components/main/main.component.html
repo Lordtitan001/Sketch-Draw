@@ -1,0 +1,156 @@
+<div class="content">
+    <nav class="navBar" [ngStyle]="ngStyle.currentBarStyle">
+        <span id="bar">
+            <div class="button" [ngStyle]="getIconStyle(1)" (click)="selectElement(1)">
+                <div>
+                    <i class="icon material-icons">
+                        {{this.drawService.images.imageToolSelected}}
+                    </i>
+                </div>
+                <span class="text"> Outils </span>
+            </div>
+            <div class="button" [ngStyle]="getIconStyle(2)" (click)="selectElement(2)">
+                <div>
+                    <i class="icon material-icons">
+                        {{this.drawService.images.imageShapeSelected}}
+                    </i>
+                </div>
+                <span class="text"> Formes </span>
+            </div>
+
+            <div class="button" [ngStyle]="getIconStyle(8)" (click)="selectElement(8)">
+                <div class="tooltip">
+                    <div>
+                        <i class="icon material-icons">
+                            {{this.drawService.grid.gridImage}}
+                        </i>
+                    </div>
+                    <span class="text"> Grille </span>
+                    <pre *ngIf="mapService.helpChecked" class="tooltiptextBar">  (G)  </pre>
+                </div>
+            </div>
+            <div class="button" [ngStyle]="getIconStyle(9)" (click)="selectElement(9)">
+                <div class="tooltip">
+                    <div>
+                        <i class="icon material-icons">
+                            {{iconMagnet}}
+                        </i>
+                    </div>
+                    <span class="text"> Magnetism </span>
+                    <pre *ngIf="mapService.helpChecked" class="tooltiptextBar">  (M)  </pre>
+                </div>
+            </div>
+
+            <div *ngIf="this.undoRedoService.actions.lastActionsList.length -1 != 0" class="button" [ngStyle]="getIconStyle(5)"
+                (click)="this.undoRedoService.undo()">
+                <div class="tooltip">
+                    <div>
+                        <i class="icon material-icons">
+                            undo
+                        </i>
+                    </div>
+                    <span class="text"> Undo </span>
+                    <span *ngIf="mapService.helpChecked" class="tooltiptextBar">Ctrl + Z</span>
+                </div>
+            </div>
+            <div *ngIf="this.undoRedoService.actions.redoList.length -1 != 0" [ngStyle]="getIconStyle(4)"
+                (click)="this.undoRedoService.redo()" class="button">
+                <div class="tooltip">
+                    <div>
+                        <i class="icon material-icons">
+                            redo
+                        </i>
+                    </div>
+                    <span class="text">Redo</span>
+                    <span *ngIf="mapService.helpChecked" class="tooltiptextBar">Ctrl + Shift + Z</span>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="button">
+                    <mat-slide-toggle [checked]="mapService.helpChecked" (change)="this.helpChanged()">
+                    </mat-slide-toggle>
+                    <span class="text">Aide</span>
+                </div>
+                <div (click)="switchTeme()" class="button">
+                    <div class="tooltip">
+                        <div>
+                            <i class="icon material-icons">
+                                {{themeIcon}}
+                            </i>
+                        </div>
+                        <span class="text">Theme</span>
+                    </div>
+                </div>
+                <div class="button" (click)="this.openGalleryModal()">
+                    <div class="tooltip">
+                        <div>
+                            <i class="icon material-icons">
+                                collections
+                            </i>
+                        </div>
+                        <span class="text">Gallerie</span>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptextBar">Ctrl + G</span>
+
+                    </div>
+                </div>
+
+                <div class="button" (click)="this.openSaveModal()">
+                    <div class="tooltip">
+                        <div>
+                            <i class="icon material-icons">
+                                save
+                            </i>
+                        </div>
+                        <span class="text">Sauvegarder</span>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptextBar">Ctrl + S</span>
+                    </div>
+                </div>
+
+                <div class="button" (click)="this.openExportModal()">
+                    <div class="tooltip">
+                        <div>
+                            <i class="icon material-icons">
+                                get_app
+                            </i>
+                        </div>
+                        <span class="text">Telecharger</span>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptextBar">Ctrl + E</span>
+                    </div>
+
+                </div>
+
+                <div (click)="newPage()" class="button">
+                    <div class="tooltip">
+                        <div>
+                            <i class="icon material-icons">
+                                file_copy
+                            </i>
+                        </div>
+                        <span class="text ">Nouveau</span>
+                        <span *ngIf="mapService.helpChecked" class="tooltiptextBar ">Ctrl + O</span>
+                    </div>
+                </div>
+
+                <div (click)="openUserManual()" class="button">
+                    <div class="tooltip">
+                        <div>
+                            <i class="icon material-icons">
+                                info
+                            </i>
+                        </div>
+                        <span class="text"> Guide </span>
+                    </div>
+
+                </div>
+            </div>
+        </span>
+        <div class="down" [ngStyle]="ngStyle.currentMenuStyle" id="deploy">
+            <app-side-menu [element]="selectedElement"> </app-side-menu>
+        </div>
+
+    </nav>
+    <app-drawing class="down" [style.background]="this.newService.backgroundColor.inverseColor().getColor()"
+        [ngStyle]="ngStyle.currentSvgStyle">
+    </app-drawing>
+</div>

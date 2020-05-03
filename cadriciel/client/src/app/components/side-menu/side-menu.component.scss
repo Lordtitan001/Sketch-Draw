@@ -1,0 +1,98 @@
+.button{
+  width: 120px;
+  background-color: var(--text);;
+}
+.buttontxt{
+    width: 100%;
+}
+div>.tools{
+    width: 100%;
+    position: relative;
+    float: left;
+    height: 60px;
+   
+}
+
+.colorPicker{
+  position: relative;
+  top: 60px;
+}
+
+.icon{
+ width: 30px;
+ height: 30px;
+ color: var(--text);
+}
+
+i{
+    margin: 2px;
+    box-sizing: border-box;
+    border: 1px solid var(--text);
+}
+
+mat-radio-button {
+    width: 100% !important;
+    margin-left: 20% !important;
+    margin-bottom: 20px !important;
+    font-weight: 500;
+}
+
+i:hover{
+
+    box-sizing: border-box;
+    border: 3px solid var(--text) !important;
+    margin: 5px !important;
+    transition: 0.5s !important;
+    cursor: default;
+}
+
+.hover{
+    box-sizing: border-box;
+    border: 4px solid var(--text);;
+    margin: 4px;
+    transition: 0.3s;
+    cursor: default;
+}
+
+content{
+    text-align: center;
+    color: var(--text);
+}
+
+.property > div{
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+input:hover{
+    width: 100px;
+
+}
+.properties{
+    margin-top: 30px;
+    cursor: default;
+
+}
+.error-messages{
+    margin-top: 30px;
+    font-size: 0.5em;
+    color: red;
+    text-align: center;
+}
+
+.mat-menu-item{
+    padding: 0 0 !important; 
+    line-height: 0px !important;
+    height: 35px !important;
+}
+
+
+.mat-menu-panel{
+    padding: unset !important;
+    line-height: unset !important;
+    color: var(--text) !important;
+    background: white !important;
+}
+button.button.mat-menu-item {
+    background: white !important;
+}

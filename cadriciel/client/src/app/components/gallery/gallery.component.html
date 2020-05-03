@@ -1,0 +1,26 @@
+<div class="button" (click)="close()">
+    <button mat-raised-button> Fermer </button>
+</div>
+
+<div class="header">
+    <span>
+        <h1 class="title"> Galerie de dessin</h1>
+    </span>
+</div>
+
+
+<div class="checkbox-div">
+    <mat-checkbox class="checkbox" [value]="tag" (change)="selectTag(tag)" *ngFor="let tag of galleryService.tagList">
+        {{tag}}
+    </mat-checkbox>
+</div>
+
+<div *ngIf=" this.galleryService.docLoaded | async; else elseBlock">
+    <app-gallery-card [drawing]="draw" class="card" *ngFor="let draw of galleryService.drawList">
+    </app-gallery-card>
+</div>
+
+<ng-template #elseBlock>
+    <mat-progress-spinner class="progress-spinner" [color]="spinner.color" [mode]="spinner.mode" [value]="spinner.value">
+    </mat-progress-spinner>
+</ng-template>

@@ -1,0 +1,16 @@
+<html>
+
+<h1>BIENVENUE</h1>
+
+<div class="grid-container">
+    <button class="button" (click)="openDrawingModal()">Nouveau dessin</button>
+    <button class="button" (click)="openGalleryModal()">Galerie</button>
+
+    <button class="button" (click)="navigate('manual')">
+        Guide
+    </button>
+    <button (click)="continue()" class="button " *ngIf="this.autoSave.isLoad">Continuer un
+        dessin</button>
+</div>
+
+</html>

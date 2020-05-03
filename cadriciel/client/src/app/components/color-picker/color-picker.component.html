@@ -1,0 +1,75 @@
+<mat-dialog-content>
+    <div id="canvasDiv">
+        <canvas #canvasRef width="256px" height="256px" (mousedown)="this.pickerService.isCanevasOn = true" (mouseup)="this.pickerService.isCanevasOn = false" (mouseout)="this.pickerService.isCanevasOn = false" [style.cursor]="this.pickerService.isCanevasOn ? 'pointer': 'default'">
+        </canvas>
+        <canvas class="sliderRef" #sliderRef width="30px" height="256px" (mousedown)="this.pickerService.isBlueSliderOn =true" (mouseup)="this.pickerService.isBlueSliderOn=false" (mouseout)="this.pickerService.isBlueSliderOn=false" [style.cursor]="this.pickerService.isBlueSliderOn ? 'pointer': 'default'"> </canvas>
+    </div>
+
+    <div class="colorContainer">
+        <svg id="preview">
+            <circle cx="13" cy="15" r="12" [style.fill]="this.pickerService.previewColor.getColor()" />
+        </svg>
+        <mat-slider min="0" max="1" step="0.01" [(ngModel)]="this.pickerService.previewColor.opacityValue"></mat-slider>
+
+        <form [formGroup]="formService.formGroup">
+            <mat-form-field id="formfield" #R1>
+                <mat-label> <span style="margin-right: 10px;"> R </span> <span style="margin-right: 10px;"> G </span>
+                    <span> B </span> </mat-label>
+                <input (change)="setColor()" maxlength="6" [value]="pickerService.previewColor.getColorHex()" formControlName="RGB" matInput>
+            </mat-form-field>
+        </form>
+        <div *ngIf="this.pickerService.isTool; else elseBlock">
+            <div id="inverseButton">
+                <span class="tooltip">
+                    <i class="icon material-icons inverser" (click)="this.inverseColor()">
+                        swap_vert</i>
+                    <span class="tooltiptext">inverser couleur</span>
+                </span>
+            </div>
+
+            <svg id="firstColorPreview">
+                <circle class="rectangle" cx="13" cy="15" r="12"
+                    [style.fill]="this.pickerService.primaryColor.getColor()"
+                    [style.stroke]="this.pickerService.isFirstColorSelected ? 'red' : 'white'"
+                    (click)="this.onBoxClick(true,true,this.pickerService.primaryColor,NULL)" />
+
+            </svg>
+
+            <div id="select-button1">
+                <button mat-raised-button (click)="this.confirmColor(true)">Primaire</button>
+            </div>
+
+
+            <svg id="secondColorPreview">
+                <circle class="rectangle" cx="13" cy="15" r="12"
+                    [style.fill]="this.pickerService.secondaryColor.getColor()"
+                    [style.stroke]="this.pickerService.isFirstColorSelected ? 'white' : 'red'"
+                    (click)="this.onBoxClick(false,true,this.pickerService.secondaryColor,NULL)" />
+            </svg>
+
+            <div id="select-button2">
+                <button mat-raised-button (click)="this.confirmColor(false)">Secondaire</button>
+            </div>
+            <div id="select-button3">
+                <button mat-raised-button (click)="this.setBackGroungColor()">Couleur Fond</button>
+            </div>
+
+            <div style="right: 2px;" id="colorBoxs " *ngFor="let colors of this.pickerService.lastTenColors; let i = index">
+                <svg id="box{{i+1}}">
+                    <circle class="rectangle" r="8" cx="8" cy="8"
+                        [style.fill]="this.pickerService.lastTenColors[i].getColor()"
+                        (click)="this.onBoxClick(true,false,this.pickerService.lastTenColors[i] ,this.pickerService.primaryColor)"
+                        (contextmenu)="this.onBoxClick(false,false,this.pickerService.lastTenColors[i], this.pickerService.secondaryColor)" />
+                </svg>
+            </div>
+
+
+        </div>
+        <ng-template #elseBlock>
+            <div style="top: 10px; position: relative; left: 60%;" id="select-button1 ">
+                <button mat-raised-button (click)="this.confirmColor(true) ">Couleur Fond</button>
+            </div>
+        </ng-template>
+
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,21 @@
+<mat-card class="card">
+    <mat-card-header class="card-title">
+        <mat-card-title> {{drawing.Draw.nom}} </mat-card-title>
+    </mat-card-header>
+    <svg #previewSVG>
+        <g width='100%' height='100%' #preview [attr.transform]="property.transform"> </g>
+    </svg>
+    <mat-card-content class="card-content">
+        <div *ngIf="drawing.Draw.tags.length; else elseBlock">
+            <span *ngFor="let tag of drawing.Draw.tags" class="card-span"> #{{tag}} </span>
+        </div>
+        <ng-template #elseBlock>
+            <span class="card-span"> Aucune etiquette </span>
+        </ng-template>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="card-button" (click)="continueDrawing()" mat-raised-button>Continuer dessin</button>
+        <button class="card-button-delete" (click)="deleteDrawing()" mat-button> Supprimer</button>
+    </mat-card-actions>
+</mat-card>

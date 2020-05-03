@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<!-- The sidebar -->
+<!-- <header> Guide d'utilisation
+</header> -->
+
+<div class="header"> 
+    <button class="exit" (click)=" backClicked()">Sortie</button>
+    <button class="topleft" (click)="this.usermanualService.previousSubject(this.usermanualService.categories)"
+        *ngIf="this.usermanualService.hidePreviousButtun()">Précédent</button>
+    <button class="topright" (click)="this.usermanualService.nextSubject(this.usermanualService.categories)"
+        *ngIf="this.usermanualService.hideNextButtun()">Suivant</button>
+</div>
+<ul class="sidebar">
+    <ul class="sub">
+        <li *ngFor="let s of this.usermanualService.subjectCategories.none"
+            (click)="this.usermanualService.selectSubject(s)" [class.selected]="s === this.usermanualService.subject">
+            {{s.name}}
+            <mat-icon aria-hidden="false">{{s.img}}</mat-icon>
+        </li>
+    </ul>
+
+    <a (click)="this.usermanualService.toogleDisplay(1)" class="category">Outils </a>
+
+    <ul class="sub" [hidden]="this.usermanualService.isShow.isShowTools">
+
+        <li *ngFor="let s of this.usermanualService.subjectCategories.tools"
+            (click)="this.usermanualService.selectSubject(s)" [class.selected]="s === this.usermanualService.subject">
+            {{s.name}}
+            <mat-icon aria-hidden="false">{{s.img}}</mat-icon>
+        </li>
+    </ul>
+
+    <a (click)="this.usermanualService.toogleDisplay(2)" class="category">Formes</a>
+    <ul class="sub" [hidden]="this.usermanualService.isShow.isShowForms">
+        <li *ngFor="let s of this.usermanualService.subjectCategories.forms"
+            (click)="this.usermanualService.selectSubject(s)" [class.selected]="s === this.usermanualService.subject">
+            {{s.name}}
+            <mat-icon aria-hidden="false">{{s.img}}</mat-icon>
+        </li>
+    </ul>
+
+    <a (click)="this.usermanualService.toogleDisplay(3)" class="category">Sélections</a>
+
+    <ul class="sub" [hidden]="this.usermanualService.isShow.isShowSelections">
+
+        <li *ngFor="let s of this.usermanualService.subjectCategories.selections"
+            (click)="this.usermanualService.selectSubject(s)" [class.selected]="s === this.usermanualService.subject">
+            {{s.name}}
+            <mat-icon aria-hidden="false">{{s.img}}</mat-icon>
+        </li>
+    </ul>
+
+
+    <a (click)="this.usermanualService.toogleDisplay(4)" class="category">Exportations</a>
+
+    <ul class="sub" [hidden]="this.usermanualService.isShow.isShowExportations">
+        <li *ngFor="let s of this.usermanualService.subjectCategories.exportations"
+            (click)="this.usermanualService.selectSubject(s)" [class.selected]="s === this.usermanualService.subject">
+            {{s.name}}
+            <mat-icon aria-hidden="false">{{s.img}}</mat-icon>
+        </li>
+
+    </ul>
+
+</ul>
+
+<!-- Page content -->
+<div class="content">
+    <div class="container">
+
+    </div>
+    <h1 style="font-family: Times New Roman, Times, serif;">
+        {{this.usermanualService.subject.name}}
+        <mat-icon aria-hidden="false">{{this.usermanualService.subject.img}}</mat-icon>
+    </h1>
+
+    <div class="text"> {{this.usermanualService.subject.text}}</div>
+
+    <div class="text"> {{this.usermanualService.subject.explication}}</div>
+
+</div>
+
+</html>

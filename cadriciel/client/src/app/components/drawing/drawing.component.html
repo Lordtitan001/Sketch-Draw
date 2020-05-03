@@ -1,0 +1,117 @@
+<div max-width="100%" max-height="100%" class="content">
+
+  <svg #svg [style.background]="this.newService.backgroundColor.getColor()" [attr.width]="this.width"
+    [attr.height]="this.height" xmlns="http://www.w3.org/2000/svg" id="svg" (mouseleave)="mouseLeave()"
+    (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)" (mousemove)="mouseMove($event)"
+    (dblclick)="mouseDblclick($event)" (wheel)="mouseWheel($event)" (click)="mouseClick($event)">
+
+
+    <path class="path" (contextmenu)='mouseClickPath($event)' (mouseover)='mouseOverPath($event)'
+      (mouseleave)='mouseLeavePath($event)' pointer-events='visiblePoint' (mousedown)='mouseDownPath($event)'
+      (click)='mouseClickPath($event)' class="path" *ngFor='let p of this.drawService.surfaceList' id='{{p.id}}'
+      [attr.d]='p.d' [attr.fill]='p.fill' [attr.stroke-width]="p.strokeWidth" [attr.transform]="p.transform"
+      [attr.stroke-linejoin]="p.strokeLinejoin" [attr.filter]="p.filter" [attr.stroke]='p.stroke'
+      [attr.stroke-linecap]='p.strokeLinecap' [attr.speed]="p.speed" [attr.tolerence]="p.tolerence" [attr.fill-rule]="p.fileRule"></path>
+
+    <path [attr.fill]="p.stroke" id="{{p.id}}" *ngFor="let p of this.drawService.jonctions" [attr.d]="p.d"
+      [attr.stroke]="p.stroke" />
+
+    <path id="preview" #preview [attr.d]="drawService.visualisation" stroke="grey"
+      [attr.stroke-width]="drawService.selectedTools.strokeWidth" fill="none" style="stroke-dasharray: 20;" />
+
+    <path id="selection" style="cursor:move;" (click)="mouseClickPath($event)" (contextmenu)="mouseClickPath($event)"
+      pointer-events='visiblePoint' transform='translate(0 0) rotate(0 0 0)' stroke-width="3" #selection />
+
+    <path id="controle" #controle (mousedown)="mouseDownControle($event)" pointer-events='visiblePoint' transform='translate(0 0) rotate(0 0 0)'
+      stroke-width='2' />
+
+    <path id="eraser" #eraser pointer-events='none' [attr.d]="drawService.paths.eraser.d" stroke="black"
+      stroke-width="1" fill="white" />
+
+    <path id="grid" pointer-events='none' [attr.d]="drawService.grid.gridContent" stroke="black" stroke-width="2"
+      fill="none" [attr.stroke-opacity]="drawService.grid.gridOpacity" />
+
+
+    <defs>
+      <filter id="Filter1" filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+      </filter>
+
+      <filter filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%" id="Filter2">
+        <feTurbulence result="turbulence" baseFrequency="0.05" numOctaves="1" seed="1" />
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="4" />
+      </filter>
+
+      <filter id="Filter3" filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%">
+        <feTurbulence result="outlineNoise" baseFrequency="0.9" numOctaves="1" seed="1" type="fractalNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="outlineNoise" result="outline" scale="20" />
+        <feTurbulence type="fractalNoise" baseFrequency='0.7' result='textureNoise' numOctaves="5" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0,
+          0 0 0 0 0,
+          0 0 0 0 0,
+          0 0 0 0 1" in="textureNoise" result="texture" />
+        <feComposite in="outline" in2="texture" operator="in" />
+      </filter>
+
+      <filter id="Filter4" filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%">
+        <feTurbulence result="outlineNoise" baseFrequency="0.2" numOctaves="1" seed="1" type="turbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="outlineNoise" result="outline" scale="10" />
+        <feGaussianBlur in="outline" result="outline2" stdDeviation="1" />
+        <feTurbulence type="turbulence" baseFrequency='0.15' result='textureTurb' numOctaves="2" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0,
+          0 0 0 0 0,
+          0 0 0 0 0,
+          0 0 0 -0.9 1.1" in="textureTurb" result="texture" />
+        <feComposite in="outline2" in2="texture" operator="in" />
+      </filter>
+
+      <filter id="Filter5" filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%">
+        <feTurbulence type="turbulence" baseFrequency="0.1" numOctaves="2" result="turbulence" />
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="30" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+
+      <filter id="filterEraser" filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%">
+        <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="4"></feMorphology>
+        <feFlood flood-color="#FF0000" flood-opacity="1" result="RED"></feFlood>
+        <feComposite in="RED" in2="DILATED" operator="in" result="OUTLINE"></feComposite>
+        <feMerge>
+          <feMergeNode in="OUTLINE" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <filter id="none">
+        <feGaussianBlur stdDeviation="0" />
+      </filter>
+
+      <filter id="blur">
+        <feGaussianBlur stdDeviation="5" />
+      </filter>
+
+      <filter id="invert" filterUnits="objectBoundingBox"  x="0px" y="0px" width="100%" height="100%">
+        <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+          <fePointLight x="0" y="0" z="0" />
+        </feDiffuseLighting>
+      </filter>
+
+      <filter id="grayscale" filterUnits="objectBoundingBox" x="0px" y="0px" width="100%" height="100%">
+        <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+          <feDistantLight azimuth="240" elevation="20" />
+          <fePointLight x="0" y="0" z="0" />
+        </feDiffuseLighting>
+      </filter>
+
+      <filter id="saturate">
+        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="turbulence" />
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+
+      <filter id="sepia">
+        <feTurbulence type="turbulence" baseFrequency="0.2" numOctaves="4" result="turbulence" />
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+
+  </svg>
+</div>
+<canvas #canvas [hidden]= 'true'></canvas>
