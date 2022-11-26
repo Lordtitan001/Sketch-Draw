@@ -43,9 +43,6 @@ export class GalleryServiceService {
         tagSet.add(tag);
       });
     }
-    tagSet.forEach((tag) => {
-      this.tagList.push(tag);
-    });
   }
 
   async getAllImageFromDataBase(): Promise<boolean> {
@@ -62,10 +59,6 @@ export class GalleryServiceService {
           this.openPopUp(this.snackBar.dismiss, this.saveService.message, this.action);
           return Promise.resolve(true);
         })
-        .then(async () => {
-          this.docLoaded = Promise.resolve(true);
-          return Promise.resolve(true);
-        });
     });
   }
 
