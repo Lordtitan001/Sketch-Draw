@@ -29,7 +29,6 @@ export class GalleryServiceService {
     this.tagSelected = [];
     this.getAllImageFromDataBase().
       then(async () => {
-          this.filter(this.saveService.drawList);
           return Promise.resolve(true);
         }
       );
@@ -40,11 +39,9 @@ export class GalleryServiceService {
     const tagSet = new Set<string>();
     for (const value of drawList) {
       value.Draw.tags.forEach((tag) => {
-        tagSet.add(tag);
       });
     }
     tagSet.forEach((tag) => {
-      this.tagList.push(tag);
     });
   }
 
